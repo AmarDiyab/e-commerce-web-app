@@ -204,6 +204,7 @@ module.exports = {
                 payment: order.payment,
                 products: products,
                 total: total,
+                date: new Date(),
                 status: status
             }
             db.get().collection(collections.ORDER_COLLECTION).insertOne(orderObj).then((response) => {

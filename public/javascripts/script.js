@@ -48,6 +48,9 @@ $("#checkout-form").submit((e) => {
         data: $('#checkout-form').serialize(),
         success: (response) => {
             alert(response)
+            if (response.status) {
+                location.href=""
+            }
         }
 
     })
