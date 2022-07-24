@@ -1,0 +1,36 @@
+<section>
+    <div class="container">
+        <table class="table mt-3">
+            <thead>
+                <tr>
+                    <th scope="col">Title</th>
+                    <th scope="col">Image</th>
+                    <th scope="col">Quantity</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Remove</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each products}}
+                <tr>
+                    <td>{{this.product.Name}}</td>
+                    <td><img src="/product-images/{{this.product._id}}.jpg" style="height: 100px;" alt=""></td>
+                    <td>
+                        <button class="btn btn-dark cart-item-count mr-3" onclick="changeQuantity('{{this._id}}', '{{this.product._id}}', '{{../userId}}', -1 )">-</button>
+                        <span id="{{this.product._id}}">{{this.quantity}}</span>
+                        <button class="btn btn-dark cart-item-count ml-3" onclick="changeQuantity('{{this._id}}', '{{this.product._id}}', '{{../userId}}', 1 )">+</button>
+                    </td>
+                    <td>₹ {{this.product.Price}}</td>
+                    <td>
+                        <a href="" class="btn btn-danger">Remove</a>
+                    </td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+            <hr>
+            <div class="float-right pr-5">
+            <h5 class="float-right mr-5 mt-2 ">TOTAL : &nbsp;₹ <span id="total">{{total}}</span></h5><br><br>
+            <a href="/order-page" class="btn btn-success font-weight-bold" style="width: 170px;">Checkout</a>
+    </div>
+</section>
