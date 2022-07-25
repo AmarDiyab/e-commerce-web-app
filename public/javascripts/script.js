@@ -1,5 +1,3 @@
-const { post, checkout } = require("../../app")
-
 function addToCart(productId) {
     $.ajax ({
         url: '/add-to-cart/'+productId,
@@ -40,8 +38,8 @@ function changeQuantity(cartId, productId, userId, count) {
     })
 }
 
-$("#checkout-form").submit((e) => {
-    e.preventDefault()
+$("#checkout-form").submit((event) => {
+    event.preventDefault()
     $.ajax({
         url: '/order-page',
         method: 'post',
@@ -49,7 +47,7 @@ $("#checkout-form").submit((e) => {
         success: (response) => {
             alert(response)
             if (response.status) {
-                location.href=""
+                location.href="/order-success"
             }
         }
 
